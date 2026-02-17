@@ -103,17 +103,22 @@ export default function HpMandarinPage() {
   };
 
   return (
-    <div className="flex h-screen flex-col bg-zinc-50 dark:bg-zinc-950">
+    <div className="flex h-screen flex-col bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Header */}
-      <header className="border-b border-zinc-200 bg-white px-4 py-4 dark:border-zinc-800 dark:bg-zinc-900">
+      <header className="border-b border-amber-200/50 bg-white/90 px-4 py-4 backdrop-blur-sm dark:border-amber-900/30 dark:bg-slate-900/90">
         <div className="mx-auto flex max-w-4xl items-center justify-between">
           <div className="flex items-center gap-4">
             <ToolsNavigation currentToolId="hp-mandarin" />
-            <h1 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              hp Mandarin AI Translator
-            </h1>
+            <div>
+              <h1 className="text-lg font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent dark:from-amber-400 dark:to-orange-400">
+                hp Mandarin AI Translator
+              </h1>
+              <p className="text-xs text-amber-700/70 dark:text-amber-400/70">
+                Multilingual translation for Mandarin, English & Thai
+              </p>
+            </div>
           </div>
-          <span className="text-sm text-zinc-500 dark:text-zinc-500">
+          <span className="text-sm text-amber-600/70 dark:text-amber-400/70">
             Powered by OpenRouter
           </span>
         </div>
@@ -123,11 +128,11 @@ export default function HpMandarinPage() {
       <div className="flex-1 overflow-y-auto px-4 py-6">
         <div className="mx-auto max-w-4xl space-y-6">
           {messages.length === 0 && (
-            <div className="text-center text-zinc-500 dark:text-zinc-500">
-              <p className="mb-2 text-lg">
+            <div className="rounded-2xl border border-amber-200/50 bg-white/80 p-8 text-center shadow-sm backdrop-blur-sm dark:border-amber-900/30 dark:bg-slate-900/80">
+              <p className="mb-2 text-lg font-semibold text-amber-800 dark:text-amber-300">
                 Welcome to hp Mandarin AI Translator
               </p>
-              <p className="text-sm">
+              <p className="text-sm text-amber-700/80 dark:text-amber-400/70">
                 Enter text in Mandarin, English, or Thai to get translations in
                 the other two languages.
               </p>
@@ -145,8 +150,8 @@ export default function HpMandarinPage() {
               <div
                 className={`max-w-[85%] whitespace-pre-wrap rounded-2xl p-4 shadow-sm ${
                   message.role === "user"
-                    ? "bg-indigo-600 text-white"
-                    : "border border-zinc-200 bg-white text-zinc-800 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
+                    ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white"
+                    : "border border-amber-200/50 bg-white text-amber-900 shadow-amber-100 dark:border-amber-900/30 dark:bg-slate-800 dark:text-amber-100"
                 }`}
               >
                 {message.content}
@@ -154,7 +159,7 @@ export default function HpMandarinPage() {
 
               {/* Metadata */}
               <div className="mt-1 flex items-center gap-2 px-1">
-                <span className="text-xs text-zinc-500 dark:text-zinc-500">
+                <span className="text-xs text-amber-600/70 dark:text-amber-400/60">
                   {message.role === "user" ? "You" : "AI"} • {message.timestamp}
                 </span>
 
@@ -170,7 +175,7 @@ export default function HpMandarinPage() {
                           `${message.id}-copy-${index}`
                         )
                       }
-                      className="flex items-center gap-1 rounded border border-indigo-200 bg-white px-2 py-0.5 text-[10px] text-indigo-600 transition hover:bg-indigo-50 dark:border-indigo-800 dark:bg-zinc-800 dark:text-indigo-400 dark:hover:bg-zinc-700"
+                      className="flex items-center gap-1 rounded border border-amber-300 bg-white px-2 py-0.5 text-[10px] text-amber-700 transition hover:bg-amber-50 dark:border-amber-700 dark:bg-slate-800 dark:text-amber-400 dark:hover:bg-slate-700"
                     >
                       {copiedId === `${message.id}-copy-${index}` ? (
                         <>
@@ -214,7 +219,7 @@ export default function HpMandarinPage() {
           {/* Loading indicator */}
           {isLoading && (
             <div className="flex flex-col items-start">
-              <div className="rounded-2xl border border-zinc-200 bg-white p-4 text-sm italic text-zinc-400 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
+              <div className="rounded-2xl border border-amber-200/50 bg-white/90 p-4 text-sm italic text-amber-600/70 shadow-sm backdrop-blur-sm dark:border-amber-900/30 dark:bg-slate-800/90 dark:text-amber-400/60">
                 Thinking...
               </div>
             </div>
@@ -225,25 +230,25 @@ export default function HpMandarinPage() {
       </div>
 
       {/* Input Area */}
-      <div className="border-t border-zinc-200 bg-white px-4 py-4 dark:border-zinc-800 dark:bg-zinc-900">
+      <div className="border-t border-amber-200/50 bg-white/90 px-4 py-4 backdrop-blur-sm dark:border-amber-900/30 dark:bg-slate-900/90">
         <div className="mx-auto flex max-w-4xl gap-3">
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Enter text to translate..."
-            className="min-h-[60px] flex-1 resize-y rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder-zinc-500"
+            className="min-h-[60px] flex-1 resize-y rounded-xl border border-amber-300/50 bg-white px-4 py-3 text-sm text-amber-900 placeholder-amber-400/70 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 dark:border-amber-700/50 dark:bg-slate-800 dark:text-amber-100 dark:placeholder-amber-500/50"
             rows={1}
           />
           <button
             onClick={handleSend}
             disabled={!input.trim() || isLoading}
-            className="h-[60px] rounded-xl bg-indigo-600 px-6 text-sm font-medium text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
+            className="h-[60px] rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-6 text-sm font-medium text-white shadow-md shadow-amber-500/20 transition hover:shadow-amber-500/30 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isLoading ? "Sending..." : "Send"}
           </button>
         </div>
-        <p className="mx-auto mt-2 max-w-4xl text-center text-xs text-zinc-500 dark:text-zinc-500">
+        <p className="mx-auto mt-2 max-w-4xl text-center text-xs text-amber-600/60 dark:text-amber-400/50">
           Press Enter to send, Shift+Enter for new line
         </p>
       </div>
