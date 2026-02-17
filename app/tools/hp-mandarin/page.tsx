@@ -118,9 +118,6 @@ export default function HpMandarinPage() {
               </p>
             </div>
           </div>
-          <span className="text-sm text-amber-600/70 dark:text-amber-400/70">
-            Powered by OpenRouter
-          </span>
         </div>
       </header>
 

@@ -105,9 +105,6 @@ export default function HpEmailDrafterPage() {
               </p>
             </div>
           </div>
-          <span className="text-sm text-slate-500">
-            Powered by OpenRouter
-          </span>
         </div>
       </header>
 
