@@ -13,7 +13,7 @@ export default function ToolsNavigation({ currentToolId }: ToolsNavigationProps)
   const currentTool = tools.find((t) => t.id === currentToolId);
 
   return (
-    <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[100] lg:hidden">
+    <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[100] lg:hidden mt-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 rounded-lg border border-[#c4a484] bg-white px-3 py-1.5 text-sm text-[#3d2914] transition hover:border-[#8b6f47] hover:bg-[#faf8f3] shadow-md"
