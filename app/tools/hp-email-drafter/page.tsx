@@ -90,26 +90,26 @@ export default function HpEmailDrafterPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-[#faf8f3] paper-texture">
       <ToolsMenu currentToolId="hp-email-drafter" />
 
       <main className="flex-1 p-8">
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <header className="mb-8">
-            <h1 className="text-xl font-semibold text-gray-900">
+            <h1 className="text-xl font-semibold text-[#3d2914] handwritten text-2xl">
               hp AI Email Drafter
             </h1>
-            <p className="text-sm text-gray-500">
-              Professional client email drafting using OpenRouter (GPT-4o)
+            <p className="text-sm text-[#8b6f47]">
+              Professional client email drafting using OpenRouter
             </p>
           </header>
 
           {/* Main Card */}
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div className="cozy-card p-6 coffee-ring">
             {/* Mode Selection */}
             <div className="mb-6">
-              <label className="mb-2 block text-sm font-medium text-gray-700">
+              <label className="mb-2 block text-sm font-medium text-[#3d2914]">
                 Email Type
               </label>
               <select
@@ -118,7 +118,7 @@ export default function HpEmailDrafterPage() {
                   setMode(e.target.value as "reply" | "new");
                   if (e.target.value === "new") setClientEmail("");
                 }}
-                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm text-gray-900 transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full rounded-lg border-2 border-[#c4a484] bg-white px-4 py-2 text-sm text-[#3d2914] transition focus:border-[#7a9eb8] focus:outline-none sketch-input"
               >
                 <option value="reply">Draft a reply to client&apos;s message</option>
                 <option value="new">Draft a new original email</option>
@@ -129,7 +129,7 @@ export default function HpEmailDrafterPage() {
             <div className="grid gap-6 lg:grid-cols-2">
               {/* Client Message */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-gray-700">
+                <label className="mb-2 block text-sm font-medium text-[#3d2914]">
                   Client Message
                 </label>
                 <textarea
@@ -141,34 +141,34 @@ export default function HpEmailDrafterPage() {
                       ? "Disabled for new email drafting"
                       : "Paste the client's email here..."
                   }
-                  className="min-h-[200px] w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-[200px] w-full rounded-lg border-2 border-[#c4a484] bg-white px-4 py-3 text-sm text-[#3d2914] placeholder-[#8b6f47] transition focus:border-[#7a9eb8] focus:outline-none sketch-input disabled:cursor-not-allowed disabled:opacity-50"
                 />
               </div>
 
               {/* Instructions & Controls */}
               <div className="space-y-4">
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-gray-700">
+                  <label className="mb-2 block text-sm font-medium text-[#3d2914]">
                     Your Notes / Instructions
                   </label>
                   <textarea
                     value={instructions}
                     onChange={(e) => setInstructions(e.target.value)}
                     placeholder="Context, actions taken, questions, updates..."
-                    className="min-h-[120px] w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    className="min-h-[120px] w-full rounded-lg border-2 border-[#c4a484] bg-white px-4 py-3 text-sm text-[#3d2914] placeholder-[#8b6f47] transition focus:border-[#7a9eb8] focus:outline-none sketch-input"
                   />
                 </div>
 
                 {/* Controls Grid */}
                 <div className="grid gap-4 sm:grid-cols-3">
                   <div>
-                    <label className="mb-2 block text-xs font-medium text-gray-600">
+                    <label className="mb-2 block text-xs font-medium text-[#5c4a3a]">
                       Tone
                     </label>
                     <select
                       value={tone}
                       onChange={(e) => setTone(e.target.value)}
-                      className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className="w-full rounded-lg border-2 border-[#c4a484] bg-white px-3 py-2 text-sm text-[#3d2914] transition focus:border-[#7a9eb8] focus:outline-none sketch-input"
                     >
                       {tones.map((t) => (
                         <option key={t} value={t}>
@@ -179,13 +179,13 @@ export default function HpEmailDrafterPage() {
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-xs font-medium text-gray-600">
+                    <label className="mb-2 block text-xs font-medium text-[#5c4a3a]">
                       Output Language
                     </label>
                     <select
                       value={language}
                       onChange={(e) => setLanguage(e.target.value)}
-                      className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className="w-full rounded-lg border-2 border-[#c4a484] bg-white px-3 py-2 text-sm text-[#3d2914] transition focus:border-[#7a9eb8] focus:outline-none sketch-input"
                     >
                       {languages.map((l) => (
                         <option key={l} value={l}>
@@ -196,13 +196,13 @@ export default function HpEmailDrafterPage() {
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-xs font-medium text-gray-600">
+                    <label className="mb-2 block text-xs font-medium text-[#5c4a3a]">
                       Length
                     </label>
                     <select
                       value={length}
                       onChange={(e) => setLength(e.target.value)}
-                      className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className="w-full rounded-lg border-2 border-[#c4a484] bg-white px-3 py-2 text-sm text-[#3d2914] transition focus:border-[#7a9eb8] focus:outline-none sketch-input"
                     >
                       {lengths.map((l) => (
                         <option key={l} value={l}>
@@ -216,12 +216,12 @@ export default function HpEmailDrafterPage() {
             </div>
 
             {/* Actions */}
-            <div className="mt-6 flex items-center justify-between border-t border-gray-200 pt-6">
-              <span className="text-sm text-gray-400">+_+</span>
+            <div className="mt-6 flex items-center justify-between border-t-2 border-dashed border-[#c4a484] pt-6">
+              <span className="text-sm text-[#8b6f47] handwritten">+_+</span>
               <button
                 onClick={handleDraft}
                 disabled={isLoading}
-                className="rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+                className="px-6 py-3 font-medium text-[#3d2914] disabled:cursor-not-allowed disabled:opacity-50 sketch-button"
               >
                 {isLoading ? "Drafting..." : "Draft Email"}
               </button>
@@ -229,19 +229,19 @@ export default function HpEmailDrafterPage() {
 
             {/* Output */}
             {output && (
-              <div className="mt-6 border-t border-gray-200 pt-6">
-                <label className="mb-2 block text-sm font-medium text-gray-700">
+              <div className="mt-6 border-t-2 border-dashed border-[#c4a484] pt-6">
+                <label className="mb-2 block text-sm font-medium text-[#3d2914]">
                   Drafted Email
                 </label>
                 <textarea
                   value={output}
                   readOnly
-                  className="min-h-[220px] w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-900"
+                  className="min-h-[220px] w-full rounded-lg border-2 border-[#9caf88] bg-[#f5f0e8] px-4 py-3 text-sm text-[#3d2914]"
                 />
                 <div className="mt-4 flex justify-center">
                   <button
                     onClick={handleCopy}
-                    className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm text-gray-600 transition hover:bg-gray-50"
+                    className="flex items-center gap-2 rounded-lg border-2 border-[#c4a484] bg-white px-4 py-2 text-sm text-[#5c4a3a] transition hover:bg-[#f5f0e8]"
                   >
                     {copied ? (
                       <>

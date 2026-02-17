@@ -103,16 +103,16 @@ export default function HpMandarinPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-[#faf8f3] paper-texture">
       <ToolsMenu currentToolId="hp-mandarin" />
 
       <main className="flex flex-1 flex-col">
         {/* Header */}
-        <header className="border-b border-gray-200 bg-white px-6 py-4">
-          <h1 className="text-lg font-semibold text-gray-900">
+        <header className="border-b-2 border-dashed border-[#c4a484] bg-white px-6 py-4 m-4 mb-0 sketch-border">
+          <h1 className="text-lg font-semibold text-[#3d2914] handwritten text-xl">
             hp Mandarin AI Translator
           </h1>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[#8b6f47]">
             Multilingual translation for Mandarin, English & Thai
           </p>
         </header>
@@ -121,11 +121,11 @@ export default function HpMandarinPage() {
         <div className="flex-1 overflow-y-auto px-6 py-6">
           <div className="mx-auto max-w-3xl space-y-6">
             {messages.length === 0 && (
-              <div className="rounded-xl border border-gray-200 bg-white p-6 text-center">
-                <p className="text-lg font-medium text-gray-900">
+              <div className="cozy-card p-6 text-center coffee-ring">
+                <p className="text-lg font-medium text-[#3d2914] handwritten text-xl">
                   Welcome to hp Mandarin AI Translator
                 </p>
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-sm text-[#5c4a3a]">
                   Enter text in Mandarin, English, or Thai to get translations in
                   the other two languages.
                 </p>
@@ -143,8 +143,8 @@ export default function HpMandarinPage() {
                 <div
                   className={`max-w-[85%] whitespace-pre-wrap rounded-2xl p-4 shadow-sm ${
                     message.role === "user"
-                      ? "bg-blue-600 text-white"
-                      : "border border-gray-200 bg-white text-gray-900"
+                      ? "bg-[#7a9eb8] text-white sketch-border"
+                      : "bg-white text-[#3d2914] sticky-note"
                   }`}
                 >
                   {message.content}
@@ -152,7 +152,7 @@ export default function HpMandarinPage() {
 
                 {/* Metadata */}
                 <div className="mt-1 flex items-center gap-2 px-1">
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-[#8b6f47] handwritten">
                     {message.role === "user" ? "You" : "AI"} • {message.timestamp}
                   </span>
 
@@ -168,7 +168,7 @@ export default function HpMandarinPage() {
                             `${message.id}-copy-${index}`
                           )
                         }
-                        className="flex items-center gap-1 rounded border border-gray-200 bg-white px-2 py-0.5 text-[10px] text-gray-600 transition hover:bg-gray-50"
+                        className="flex items-center gap-1 rounded px-2 py-0.5 text-[10px] text-[#5c4a3a] transition hover:bg-[#f5f0e8] sketch-border-sm bg-white"
                       >
                         {copiedId === `${message.id}-copy-${index}` ? (
                           <>
@@ -212,7 +212,7 @@ export default function HpMandarinPage() {
             {/* Loading indicator */}
             {isLoading && (
               <div className="flex flex-col items-start">
-                <div className="rounded-2xl border border-gray-200 bg-white p-4 text-sm italic text-gray-400 shadow-sm">
+                <div className="rounded-2xl border-2 border-dashed border-[#c4a484] bg-[#f5f0e8] p-4 text-sm italic text-[#8b6f47]">
                   Thinking...
                 </div>
               </div>
@@ -223,25 +223,25 @@ export default function HpMandarinPage() {
         </div>
 
         {/* Input Area */}
-        <div className="border-t border-gray-200 bg-white px-6 py-4">
+        <div className="border-t-2 border-dashed border-[#c4a484] bg-white px-6 py-4 m-4 mt-0 sketch-border">
           <div className="mx-auto flex max-w-3xl gap-3">
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Enter text to translate..."
-              className="min-h-[60px] flex-1 resize-y rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="min-h-[60px] flex-1 resize-y rounded-xl border-2 border-[#c4a484] bg-white px-4 py-3 text-sm text-[#3d2914] placeholder-[#8b6f47] focus:border-[#7a9eb8] focus:outline-none sketch-input"
               rows={1}
             />
             <button
               onClick={handleSend}
               disabled={!input.trim() || isLoading}
-              className="h-[60px] rounded-xl bg-blue-600 px-6 text-sm font-medium text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+              className="h-[60px] px-6 text-sm font-medium text-[#3d2914] disabled:cursor-not-allowed disabled:opacity-50 sketch-button"
             >
               {isLoading ? "Sending..." : "Send"}
             </button>
           </div>
-          <p className="mx-auto mt-2 max-w-3xl text-center text-xs text-gray-500">
+          <p className="mx-auto mt-2 max-w-3xl text-center text-xs text-[#8b6f47] handwritten">
             Press Enter to send, Shift+Enter for new line
           </p>
         </div>

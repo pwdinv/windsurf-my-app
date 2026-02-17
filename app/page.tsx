@@ -2,23 +2,30 @@ import ToolsMenu from "./components/ToolsMenu";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-[#faf8f3] paper-texture">
       <ToolsMenu />
 
       <main className="flex-1 p-8">
-        <div className="mx-auto max-w-3xl">
-          <h1 className="mb-2 text-3xl font-semibold text-gray-900">
-            Welcome to Hack&apos;s Tools
+        <div className="mx-auto max-w-3xl cozy-card coffee-ring p-8">
+          <h1 className="mb-2 text-3xl font-semibold text-[#3d2914]">
+            <span className="wobbly-underline">Welcome</span> to Hack&apos;s Tools
           </h1>
-          <p className="mb-8 text-gray-600">
-            A collection of useful tools for productivity and AI-powered tasks.
+          <p className="mb-8 text-[#5c4a3a] handwritten text-lg">
+            A cozy collection of useful tools for your creative workspace ✨
           </p>
 
-          <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="mb-4 text-lg font-medium text-gray-900">Available Tools</h2>
-            <p className="text-gray-600">
-              Select a tool from the sidebar menu to get started. New tools will be added here automatically.
+          <div className="sticky-note p-6 transform -rotate-1">
+            <h2 className="mb-4 text-lg font-semibold text-[#3d2914] flex items-center gap-2">
+              <span className="text-2xl">🛠️</span> Available Tools
+            </h2>
+            <p className="text-[#5c4a3a]">
+              Select a tool from the sidebar menu to get started. Each tool is designed with care for your daily tasks.
             </p>
+          </div>
+
+          {/* Decorative plant doodle area */}
+          <div className="mt-8 flex justify-end">
+            <div className="text-6xl opacity-30">🌿</div>
           </div>
         </div>
       </main>
