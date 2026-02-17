@@ -37,10 +37,10 @@ export default function ToolsNavigation({ currentToolId }: ToolsNavigationProps)
       {isOpen && (
         <>
           <div
-            className="fixed inset-0 z-10"
+            className="fixed inset-0 z-40"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute left-0 top-full z-20 mt-2 w-72 rounded-xl border border-zinc-200 bg-white py-2 shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
+          <div className="absolute left-0 top-full z-50 mt-2 w-72 rounded-xl border border-zinc-200 bg-white py-2 shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
             <div className="border-b border-zinc-100 px-4 py-2 dark:border-zinc-800">
               <p className="text-xs font-medium text-zinc-500 dark:text-zinc-500">
                 Hack&apos;s Tools
