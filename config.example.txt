@@ -1,0 +1,10 @@
+# OpenRouter API Key Configuration
+# 
+# 1. Create a file named .env.local in the project root
+# 2. Add the following line with your actual API key:
+#
+# OPENROUTER_API_KEY=your_openrouter_api_key_here
+#
+# 3. Get your API key from: https://openrouter.ai/keys
+#
+# IMPORTANT: Never commit .env.local to git - it is already gitignored.
