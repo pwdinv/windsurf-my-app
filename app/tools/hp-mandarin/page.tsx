@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
+import ToolsNavigation from "../../components/ToolsNavigation";
 
 interface Message {
   id: string;
@@ -108,12 +108,7 @@ export default function HpMandarinPage() {
       <header className="border-b border-zinc-200 bg-white px-4 py-4 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mx-auto flex max-w-4xl items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link
-              href="/"
-              className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
-            >
-              ← Back
-            </Link>
+            <ToolsNavigation currentToolId="hp-mandarin" />
             <h1 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
               hp Mandarin AI Translator
             </h1>

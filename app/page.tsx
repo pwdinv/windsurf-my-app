@@ -1,22 +1,13 @@
 import Link from "next/link";
+import { tools } from "../lib/tools";
 
 export default function Home() {
-  const tools = [
-    {
-      id: "hp-mandarin",
-      name: "hp Mandarin AI Translator",
-      description: "AI-powered translator for Mandarin, English, and Thai translations",
-      href: "/tools/hp-mandarin",
-      icon: "🌐"
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
       <header className="border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
         <div className="mx-auto max-w-5xl px-4 py-6">
           <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
-            Tools Hub
+            Hack&apos;s Tools
           </h1>
           <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
             A collection of useful tools
