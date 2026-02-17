@@ -9,6 +9,20 @@ interface DateInfo {
   color: string;
 }
 
+interface FrequencyRange {
+  frequency: string;
+  indate: string;
+  outdate: string;
+  startTime: string;
+  endTime: string;
+}
+
+interface InterProfileData {
+  uid: string;
+  frequencyRanges: FrequencyRange[];
+  rawXml: string;
+}
+
 interface ProfileData {
   fileName: string;
   isOlpFile: boolean;
@@ -24,11 +38,13 @@ interface ProfileData {
   playMediaClipsUIDs: string[];
   totalPlayMediaClips: number;
   interProfileContent?: string;
+  interProfileData?: InterProfileData[];
 }
 
 export default function HpMusicProfilePage() {
   const [profiles, setProfiles] = useState<ProfileData[]>([]);
   const [dragActive, setDragActive] = useState(false);
+  const [showRawXml, setShowRawXml] = useState<Record<number, boolean>>({});
 
   const extractTagContent = (content: string, tag: string, attribute: string): string => {
     const regex = new RegExp(`<${tag}[^>]*?>[\\s\\S]*?<\\/${tag}>`, 'i');
@@ -56,10 +72,47 @@ export default function HpMusicProfilePage() {
     return attributes;
   };
 
-  const extractInterProfileTags = (content: string): string => {
+  const parseInterProfileData = (content: string): InterProfileData[] => {
+    const interProfiles: InterProfileData[] = [];
     const regex = /<INTER-PROFILE[^>]*>[\s\S]*?<\/INTER-PROFILE>/gi;
     const matches = content.match(regex);
-    return matches ? matches.join('\n\n') : 'No <INTER-PROFILE> tags found';
+    
+    if (!matches) return interProfiles;
+    
+    matches.forEach((match) => {
+      const uidMatch = match.match(/UID="([^"]+)"/);
+      const uid = uidMatch ? uidMatch[1] : 'N/A';
+      
+      const frequencyRanges: FrequencyRange[] = [];
+      const freqRangeRegex = /<FREQUENCY-RANGE[^>]*\/>/gi;
+      const freqMatches = match.match(freqRangeRegex);
+      
+      if (freqMatches) {
+        freqMatches.forEach((freqMatch) => {
+          const freq = freqMatch.match(/FREQUENCY="([^"]+)"/)?.[1] || 'N/A';
+          const indate = freqMatch.match(/INDATE="([^"]+)"/)?.[1] || '';
+          const outdate = freqMatch.match(/OUTDATE="([^"]+)"/)?.[1] || '';
+          const startTime = freqMatch.match(/STARTTIME="([^"]+)"/)?.[1] || '';
+          const endTime = freqMatch.match(/ENDTIME="([^"]+)"/)?.[1] || '';
+          
+          frequencyRanges.push({
+            frequency: freq,
+            indate,
+            outdate,
+            startTime,
+            endTime,
+          });
+        });
+      }
+      
+      interProfiles.push({
+        uid,
+        frequencyRanges,
+        rawXml: match,
+      });
+    });
+    
+    return interProfiles;
   };
 
   const extractPlayMediaClipsUIDs = (content: string): string[] => {
@@ -145,7 +198,7 @@ export default function HpMusicProfilePage() {
     };
 
     if (data.isOlpFile) {
-      data.interProfileContent = extractInterProfileTags(content);
+      data.interProfileData = parseInterProfileData(content);
     }
 
     data.mediaClipUID = extractTagContent(content, 'MEDIA-CLIP', 'UID');
@@ -205,6 +258,29 @@ export default function HpMusicProfilePage() {
   const olpProfiles = profiles.filter((p) => p.isOlpFile);
 
   const isGreyTime = (start: string, finish: string) => start === "00:00" && finish === "00:00";
+
+  const formatInterProfileDate = (dateString: string): string => {
+    if (dateString.length < 8) return dateString;
+    const year = dateString.slice(0, 4);
+    const month = parseInt(dateString.slice(4, 6), 10);
+    const day = parseInt(dateString.slice(6, 8), 10);
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    return `${day} ${months[month - 1]} ${year}`;
+  };
+
+  const formatInterProfileTime = (timeString: string): string => {
+    if (timeString.length === 4 && /^\d+$/.test(timeString)) {
+      return `${timeString.slice(0, 2)}:${timeString.slice(2)}`;
+    }
+    return timeString;
+  };
+
+  const toggleRawXml = (index: number) => {
+    setShowRawXml((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
 
   return (
     <div className="flex min-h-screen bg-[#faf8f3] paper-texture">
@@ -328,19 +404,58 @@ export default function HpMusicProfilePage() {
                         </span>
                       </div>
 
-                      {/* INTER-PROFILE Tags in Textarea */}
-                      {profile.interProfileContent && (
+                      {/* INTER-PROFILE Tags with Toggle */}
+                      {profile.interProfileData && profile.interProfileData.length > 0 && (
                         <div className="pt-2 border-t border-dashed border-[#c9a9a6]">
-                          <p className="text-[#5c4a3a] font-medium mb-1">
-                            <strong>INTER-PROFILE Tags:</strong>
-                          </p>
-                          <textarea
-                            value={profile.interProfileContent}
-                            readOnly
-                            rows={5}
-                            className="w-full p-2 text-sm font-mono border border-[#c9a9a6] rounded resize-y min-h-[100px]"
-                            style={{ color: '#9333ea' }}
-                          />
+                          <div className="flex items-center justify-between mb-2">
+                            <p className="text-[#5c4a3a] font-medium">
+                              <strong>INTER-PROFILE Tags:</strong>
+                            </p>
+                            <button
+                              onClick={() => toggleRawXml(index)}
+                              className="text-xs px-2 py-1 bg-[#c9a9a6] text-white rounded hover:bg-[#a0807e] transition"
+                            >
+                              {showRawXml[index] ? 'Show Readable' : 'Show Raw XML'}
+                            </button>
+                          </div>
+                          
+                          {showRawXml[index] ? (
+                            <textarea
+                              value={profile.interProfileData.map(ip => ip.rawXml).join('\n\n')}
+                              readOnly
+                              rows={5}
+                              className="w-full p-2 text-sm font-mono border border-[#c9a9a6] rounded resize-y min-h-[100px]"
+                              style={{ color: '#9333ea' }}
+                            />
+                          ) : (
+                            <div className="space-y-3">
+                              {profile.interProfileData.map((ip, ipIndex) => (
+                                <div key={ipIndex} className="bg-white p-3 rounded border border-[#c9a9a6]">
+                                  <p className="text-sm font-mono text-[#9333ea] mb-2">
+                                    <strong>UID:</strong> {ip.uid}
+                                  </p>
+                                  {ip.frequencyRanges.length > 0 && (
+                                    <div className="space-y-2">
+                                      {ip.frequencyRanges.map((fr, frIndex) => (
+                                        <div key={frIndex} className="text-sm pl-2 border-l-2 border-[#c9a9a6]">
+                                          <p><strong>Frequency {frIndex + 1}:</strong> {fr.frequency}</p>
+                                          <p className="text-[#16a34a]">
+                                            <strong>In:</strong> {formatInterProfileDate(fr.indate)}
+                                          </p>
+                                          <p className="text-[#dc2626]">
+                                            <strong>Out:</strong> {formatInterProfileDate(fr.outdate)}
+                                          </p>
+                                          <p>
+                                            <strong>Time:</strong> {formatInterProfileTime(fr.startTime)} - {formatInterProfileTime(fr.endTime)}
+                                          </p>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
