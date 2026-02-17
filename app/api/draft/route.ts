@@ -51,7 +51,7 @@ Write a clear, professional, and client-ready email. Keep the language natural a
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "openai/gpt-4o",
+          model: "openai/gpt-4o-mini",
           messages: [{ role: "user", content: prompt }],
           temperature: 0.4,
         }),
