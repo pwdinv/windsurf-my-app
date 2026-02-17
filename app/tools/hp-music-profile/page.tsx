@@ -438,7 +438,12 @@ export default function HpMusicProfilePage() {
                                     <div className="space-y-2">
                                       {ip.frequencyRanges.map((fr, frIndex) => (
                                         <div key={frIndex} className="text-sm pl-2 border-l-2 border-[#c9a9a6]">
-                                          <p><strong>Frequency {frIndex + 1}:</strong> {fr.frequency}</p>
+                                          <div className="flex items-center gap-2 mb-1">
+                                            <span className="text-lg">📊</span>
+                                            <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                              1 in every {parseInt(fr.frequency) + 1} tracks
+                                            </div>
+                                          </div>
                                           <p className="text-[#16a34a]">
                                             <strong>In:</strong> {formatInterProfileDate(fr.indate)}
                                           </p>
