@@ -31,5 +31,21 @@ export const tools: Tool[] = [
     href: "/tools/hp-music-profile",
     icon: "🎵",
     color: "#c9a9a6"
+  },
+  {
+    id: "hp-replacement-form",
+    name: "hp Replacement Request Form",
+    description: "Submit system replacement requests with required details",
+    href: "/tools/hp-replacement-form",
+    icon: "🔄",
+    color: "#f97316"
+  },
+  {
+    id: "hp-track-extractor",
+    name: "hp Track Data Extractor",
+    description: "Extract track information from DVJ log files",
+    href: "/tools/hp-track-extractor",
+    icon: "🎧",
+    color: "#9caf88"
   }
 ];

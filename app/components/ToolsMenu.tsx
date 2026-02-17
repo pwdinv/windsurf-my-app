@@ -7,11 +7,10 @@ interface ToolsMenuProps {
 
 export default function ToolsMenu({ currentToolId }: ToolsMenuProps) {
   return (
-    <aside className="w-64 flex-shrink-0 sketch-border bg-white m-4 mr-0 p-6 sticky-note washi-tape">
-      <div className="sticky top-0">
+    <aside className="w-64 flex-shrink-0 sketch-border bg-white m-4 mr-0 p-6 sticky-note washi-tape sticky top-4 self-start max-h-[calc(100vh-2rem)] overflow-y-auto">
         {/* Logo/Header */}
         <Link href="/" className="mb-8 flex items-center gap-2">
-          <span className="handwritten text-2xl text-[#3d2914]">Hack&apos;s Tools</span>
+          <span className="handwritten text-2xl text-[#3d2914]">Hack&apos;s Toolkit</span>
         </Link>
 
         {/* Tools List */}
@@ -56,7 +55,6 @@ export default function ToolsMenu({ currentToolId }: ToolsMenuProps) {
             Back to home
           </Link>
         </div>
-      </div>
     </aside>
   );
 }

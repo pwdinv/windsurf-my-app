@@ -8,7 +8,7 @@ export default function Home() {
       <main className="flex-1 p-8">
         <div className="mx-auto max-w-3xl cozy-card coffee-ring p-8">
           <h1 className="mb-2 text-3xl font-semibold text-[#3d2914]">
-            <span className="wobbly-underline">Welcome</span> to Hack&apos;s Tools
+            <span className="wobbly-underline">Welcome to Hack&apos;s Toolkit</span>
           </h1>
           <p className="mb-8 text-[#5c4a3a] handwritten text-lg">
             A cozy collection of useful tools for your creative workspace ✨

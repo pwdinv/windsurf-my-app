@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap');
 
 :root {
   --background: #faf8f3;
@@ -20,14 +19,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Nunito', sans-serif;
+  --font-sans: var(--font-nunito), sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--font-nunito), sans-serif;
 }
 
 /* Paper grain texture overlay */
@@ -62,7 +61,7 @@ body {
 
 /* Hand-drawn button with ink-pen feel */
 .sketch-button {
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--font-nunito), sans-serif;
   font-weight: 600;
   background: var(--cream-accent);
   border: 2px solid var(--ink-brown);
@@ -105,7 +104,7 @@ body {
 
 /* Pencil sketch input */
 .sketch-input {
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--font-nunito), sans-serif;
   background: white;
   border: 2px solid var(--soft-terracotta);
   border-radius: 8px;
@@ -121,7 +120,7 @@ body {
 
 /* Handwritten text style */
 .handwritten {
-  font-family: 'Caveat', cursive;
+  font-family: var(--font-caveat), cursive;
   font-weight: 500;
 }
 
