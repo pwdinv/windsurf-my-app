@@ -211,7 +211,7 @@ export default function HpMusicProfilePage() {
       <ToolsMenu currentToolId="hp-music-profile" />
       <ToolsNavigation currentToolId="hp-music-profile" />
 
-      <main className="flex-1 p-4 sm:p-6 lg:p-4 sm:p-6 lg:p-8">
+      <main className="flex-1 p-4 sm:p-6 lg:p-8 pt-16 lg:pt-8">
         <div className="mx-auto max-w-6xl">
           {/* Header */}
           <header className="mb-6 sm:mb-8 text-center">

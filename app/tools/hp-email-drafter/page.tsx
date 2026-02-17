@@ -95,7 +95,7 @@ export default function HpEmailDrafterPage() {
       <ToolsMenu currentToolId="hp-email-drafter" />
       <ToolsNavigation currentToolId="hp-email-drafter" />
 
-      <main className="flex-1 p-4 sm:p-6 lg:p-8">
+      <main className="flex-1 p-4 sm:p-6 lg:p-8 pt-16 lg:pt-8">
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <header className="mb-8">

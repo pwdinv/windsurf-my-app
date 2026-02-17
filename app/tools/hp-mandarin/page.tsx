@@ -108,9 +108,9 @@ export default function HpMandarinPage() {
       <ToolsMenu currentToolId="hp-mandarin" />
       <ToolsNavigation currentToolId="hp-mandarin" />
 
-      <main className="flex flex-1 flex-col">
+      <main className="flex flex-1 flex-col pt-14 lg:pt-0">
         {/* Header */}
-        <header className="border-b-2 border-dashed border-[#7a9eb8] bg-white px-6 py-4 m-4 mb-0 sketch-border">
+        <header className="border-b-2 border-dashed border-[#7a9eb8] bg-white px-4 sm:px-6 py-4 m-2 sm:m-4 mb-0 sketch-border">
           <h1 className="text-lg font-semibold text-[#3d2914] handwritten text-xl flex items-center gap-2">
             <span className="text-2xl">🌐</span> hp Mandarin AI Translator
           </h1>
@@ -120,7 +120,7 @@ export default function HpMandarinPage() {
         </header>
 
         {/* Chat Area */}
-        <div className="flex-1 overflow-y-auto px-6 py-6">
+        <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-6">
           <div className="mx-auto max-w-3xl space-y-6">
             {messages.length === 0 && (
               <div className="cozy-card p-6 text-center coffee-ring">
@@ -225,7 +225,7 @@ export default function HpMandarinPage() {
         </div>
 
         {/* Input Area */}
-        <div className="border-t-2 border-dashed border-[#7a9eb8] bg-white px-6 py-4 m-4 mt-0 sketch-border">
+        <div className="border-t-2 border-dashed border-[#7a9eb8] bg-white px-4 sm:px-6 py-4 m-2 sm:m-4 mt-0 sketch-border">
           <div className="mx-auto flex max-w-3xl gap-3">
             <textarea
               value={input}
