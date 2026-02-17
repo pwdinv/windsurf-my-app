@@ -104,10 +104,10 @@ export default function HpReplacementFormPage() {
       <ToolsMenu currentToolId="hp-replacement-form" />
       <ToolsNavigation currentToolId="hp-replacement-form" />
 
-      <main className="flex-1 p-4 sm:p-6 lg:p-4 sm:p-6 lg:p-8">
+      <main className="flex-1 p-4 sm:p-6 lg:p-8 pt-16 lg:pt-8">
         <div className="mx-auto max-w-2xl">
           {/* Form Container */}
-          <div className="cozy-card p-4 sm:p-6 lg:p-4 sm:p-6 lg:p-8">
+          <div className="cozy-card p-4 sm:p-6 lg:p-8">
             <h2 className="text-lg sm:text-xl font-semibold text-[#3d2914] text-center mb-4 sm:mb-6">
               Replacement Request Form
             </h2>

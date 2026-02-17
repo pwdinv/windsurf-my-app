@@ -7,7 +7,7 @@ export default function Home() {
       <ToolsMenu />
       <ToolsNavigation />
 
-      <main className="flex-1 p-4 sm:p-6 lg:p-8">
+      <main className="flex-1 p-4 sm:p-6 lg:p-8 pt-16 lg:pt-8">
         <div className="mx-auto max-w-3xl cozy-card coffee-ring p-4 sm:p-6 lg:p-8">
           <h1 className="mb-2 text-2xl sm:text-3xl font-semibold text-[#3d2914]">
             <span className="wobbly-underline">Welcome to Hack&apos;s Toolkit</span>
