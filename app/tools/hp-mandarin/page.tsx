@@ -110,26 +110,25 @@ export default function HpMandarinPage() {
 
       <main className="flex flex-1 flex-col pt-14 lg:pt-0">
         {/* Header */}
-        <header className="border-b-2 border-dashed border-[#7a9eb8] bg-white px-4 sm:px-6 py-4 m-2 sm:m-4 mb-0 sketch-border">
-          <h1 className="text-lg font-semibold text-[#3d2914] handwritten text-xl flex items-center gap-2">
-            <span className="text-2xl">🌐</span> hp Mandarin AI Translator
+        <header className="border-b-2 border-dashed border-[#7a9eb8] bg-white px-3 sm:px-6 py-2 sm:py-4 m-1 sm:m-4 mb-0 sketch-border flex-shrink-0">
+          <h1 className="text-base sm:text-lg font-semibold text-[#3d2914] handwritten flex items-center gap-2">
+            <span className="text-xl sm:text-2xl">🌐</span> hp Mandarin AI Translator
           </h1>
-          <p className="text-sm text-[#7a9eb8]">
+          <p className="text-xs sm:text-sm text-[#7a9eb8] truncate">
             Multilingual translation for Mandarin, English & Thai
           </p>
         </header>
 
         {/* Chat Area */}
-        <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-6">
-          <div className="mx-auto max-w-3xl space-y-6">
+        <div className="flex-1 overflow-y-auto px-3 sm:px-6 py-2 sm:py-6 min-h-0">
+          <div className="mx-auto max-w-3xl space-y-3 sm:space-y-6">
             {messages.length === 0 && (
-              <div className="cozy-card p-6 text-center coffee-ring">
-                <p className="text-lg font-medium text-[#3d2914] handwritten text-xl">
+              <div className="cozy-card p-4 sm:p-6 text-center coffee-ring">
+                <p className="text-sm sm:text-lg font-medium text-[#3d2914] handwritten">
                   Welcome to hp Mandarin AI Translator
                 </p>
-                <p className="mt-2 text-sm text-[#5c4a3a]">
-                  Enter text in Mandarin, English, or Thai to get translations in
-                  the other two languages.
+                <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-[#5c4a3a]">
+                  Enter text in Mandarin, English, or Thai to get translations
                 </p>
               </div>
             )}
@@ -143,7 +142,7 @@ export default function HpMandarinPage() {
               >
                 {/* Message Bubble */}
                 <div
-                  className={`max-w-[85%] whitespace-pre-wrap rounded-2xl p-4 shadow-sm ${
+                  className={`max-w-[90%] sm:max-w-[85%] whitespace-pre-wrap rounded-2xl p-2 sm:p-4 shadow-sm text-sm sm:text-base ${
                     message.role === "user"
                       ? "bg-[#7a9eb8] text-white sketch-border"
                       : "bg-white text-[#3d2914] sticky-note-blue sketch-border"
@@ -225,26 +224,26 @@ export default function HpMandarinPage() {
         </div>
 
         {/* Input Area */}
-        <div className="border-t-2 border-dashed border-[#7a9eb8] bg-white px-4 sm:px-6 py-4 m-2 sm:m-4 mt-0 sketch-border">
-          <div className="mx-auto flex max-w-3xl gap-3">
+        <div className="border-t-2 border-dashed border-[#7a9eb8] bg-white px-3 sm:px-6 py-2 sm:py-4 m-1 sm:m-4 mt-0 sketch-border flex-shrink-0">
+          <div className="mx-auto flex max-w-3xl gap-2 sm:gap-3">
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Enter text to translate..."
-              className="min-h-[60px] flex-1 resize-y rounded-xl border-2 border-[#7a9eb8] bg-white px-4 py-3 text-sm text-[#3d2914] placeholder-[#7a9eb8] focus:border-[#7a9eb8] focus:outline-none sketch-input"
+              placeholder="Enter text..."
+              className="min-h-[44px] sm:min-h-[60px] flex-1 resize-y rounded-xl border-2 border-[#7a9eb8] bg-white px-3 sm:px-4 py-2 sm:py-3 text-sm text-[#3d2914] placeholder-[#7a9eb8] focus:border-[#7a9eb8] focus:outline-none sketch-input"
               rows={1}
             />
             <button
               onClick={handleSend}
               disabled={!input.trim() || isLoading}
-              className="h-[60px] px-6 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-50 sketch-button bg-[#7a9eb8] border-[#3d2914]"
+              className="h-[44px] sm:h-[60px] px-3 sm:px-6 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-50 sketch-button bg-[#7a9eb8] border-[#3d2914]"
             >
-              {isLoading ? "Sending..." : "Send"}
+              {isLoading ? "..." : "Send"}
             </button>
           </div>
-          <p className="mx-auto mt-2 max-w-3xl text-center text-xs text-[#7a9eb8] handwritten">
-            Press Enter to send, Shift+Enter for new line
+          <p className="mx-auto mt-1 sm:mt-2 max-w-3xl text-center text-[10px] sm:text-xs text-[#7a9eb8] handwritten">
+            Enter to send, Shift+Enter for new line
           </p>
         </div>
       </main>
