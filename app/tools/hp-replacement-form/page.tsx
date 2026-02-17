@@ -1,4 +1,5 @@
 "use client";
+import ToolsNavigation from "../../components/ToolsNavigation";
 
 import { useState } from "react";
 import ToolsMenu from "../../components/ToolsMenu";
@@ -101,12 +102,13 @@ export default function HpReplacementFormPage() {
   return (
     <div className="flex min-h-screen bg-[#faf8f3] paper-texture">
       <ToolsMenu currentToolId="hp-replacement-form" />
+      <ToolsNavigation currentToolId="hp-replacement-form" />
 
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-4 sm:p-6 lg:p-4 sm:p-6 lg:p-8">
         <div className="mx-auto max-w-2xl">
           {/* Form Container */}
-          <div className="cozy-card p-8">
-            <h2 className="text-xl font-semibold text-[#3d2914] text-center mb-6">
+          <div className="cozy-card p-4 sm:p-6 lg:p-4 sm:p-6 lg:p-8">
+            <h2 className="text-lg sm:text-xl font-semibold text-[#3d2914] text-center mb-4 sm:mb-6">
               Replacement Request Form
             </h2>
 

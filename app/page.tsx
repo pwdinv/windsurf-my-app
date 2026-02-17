@@ -1,16 +1,18 @@
 import ToolsMenu from "./components/ToolsMenu";
+import ToolsNavigation from "./components/ToolsNavigation";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen bg-[#faf8f3] paper-texture">
       <ToolsMenu />
+      <ToolsNavigation />
 
-      <main className="flex-1 p-8">
-        <div className="mx-auto max-w-3xl cozy-card coffee-ring p-8">
-          <h1 className="mb-2 text-3xl font-semibold text-[#3d2914]">
+      <main className="flex-1 p-4 sm:p-6 lg:p-8">
+        <div className="mx-auto max-w-3xl cozy-card coffee-ring p-4 sm:p-6 lg:p-8">
+          <h1 className="mb-2 text-2xl sm:text-3xl font-semibold text-[#3d2914]">
             <span className="wobbly-underline">Welcome to Hack&apos;s Toolkit</span>
           </h1>
-          <p className="mb-8 text-[#5c4a3a] handwritten text-lg">
+          <p className="mb-6 sm:mb-8 text-[#5c4a3a] handwritten text-base sm:text-lg">
             A cozy collection of useful tools for your creative workspace ✨
           </p>
 

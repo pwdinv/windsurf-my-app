@@ -1,4 +1,5 @@
 "use client";
+import ToolsNavigation from "../../components/ToolsNavigation";
 
 import { useState } from "react";
 import ToolsMenu from "../../components/ToolsMenu";
@@ -92,8 +93,9 @@ export default function HpEmailDrafterPage() {
   return (
     <div className="flex min-h-screen bg-[#faf8f3] paper-texture">
       <ToolsMenu currentToolId="hp-email-drafter" />
+      <ToolsNavigation currentToolId="hp-email-drafter" />
 
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-4 sm:p-6 lg:p-8">
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <header className="mb-8">

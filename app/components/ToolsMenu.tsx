@@ -7,10 +7,10 @@ interface ToolsMenuProps {
 
 export default function ToolsMenu({ currentToolId }: ToolsMenuProps) {
   return (
-    <aside className="w-64 flex-shrink-0 sketch-border bg-white m-4 mr-0 p-6 sticky-note washi-tape sticky top-4 self-start max-h-[calc(100vh-2rem)] overflow-y-auto">
+    <aside className="w-64 lg:w-72 flex-shrink-0 sketch-border bg-white m-2 sm:m-4 mr-0 p-4 sm:p-6 sticky-note washi-tape sticky top-4 self-start max-h-[calc(100vh-2rem)] overflow-y-auto hidden lg:block">
         {/* Logo/Header */}
-        <Link href="/" className="mb-8 flex items-center gap-2">
-          <span className="handwritten text-2xl text-[#3d2914]">Hack&apos;s Toolkit</span>
+        <Link href="/" className="mb-6 sm:mb-8 flex items-center gap-2">
+          <span className="handwritten text-xl sm:text-2xl text-[#3d2914]">Hack&apos;s Toolkit</span>
         </Link>
 
         {/* Tools List */}

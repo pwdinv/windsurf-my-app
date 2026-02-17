@@ -1,4 +1,5 @@
 "use client";
+import ToolsNavigation from "../../components/ToolsNavigation";
 
 import { useState } from "react";
 import ToolsMenu from "../../components/ToolsMenu";
@@ -208,15 +209,16 @@ export default function HpMusicProfilePage() {
   return (
     <div className="flex min-h-screen bg-[#faf8f3] paper-texture">
       <ToolsMenu currentToolId="hp-music-profile" />
+      <ToolsNavigation currentToolId="hp-music-profile" />
 
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-4 sm:p-6 lg:p-4 sm:p-6 lg:p-8">
         <div className="mx-auto max-w-6xl">
           {/* Header */}
-          <header className="mb-8 text-center">
-            <h1 className="text-2xl font-semibold text-[#3d2914] handwritten flex items-center justify-center gap-2">
-              <span className="text-3xl">😃</span> hpMusicProfileViewer <span className="text-3xl">😃</span>
+          <header className="mb-6 sm:mb-8 text-center">
+            <h1 className="text-xl sm:text-2xl font-semibold text-[#3d2914] handwritten flex items-center justify-center gap-2">
+              <span className="text-2xl sm:text-3xl">😃</span> hpMusicProfileViewer <span className="text-2xl sm:text-3xl">😃</span>
             </h1>
-            <p className="text-sm text-[#8b6f47] mt-2">
+            <p className="text-xs sm:text-sm text-[#8b6f47] mt-2">
               Upload Music Profiles to Display Information
             </p>
           </header>
@@ -259,7 +261,7 @@ export default function HpMusicProfilePage() {
           )}
 
           {/* Two Column Layout */}
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2">
             {/* Overlays & Others (OLP Files) */}
             <div className="space-y-4">
               <h2 className="text-xl font-semibold text-[#3d2914] handwritten">
@@ -287,20 +289,20 @@ export default function HpMusicProfilePage() {
                       </div>
 
                       {/* Time and Day */}
-                      <div className="text-lg">
-                        {!grey && <span className="text-2xl">⏰ </span>}
+                      <div className="text-base sm:text-lg">
+                        {!grey && <span className="text-xl sm:text-2xl">⏰ </span>}
                         <span
-                          className="font-bold text-2xl"
+                          className="font-bold text-xl sm:text-2xl"
                           style={{ color: grey ? '#9ca3af' : '#f97316' }}
                         >
                           {profile.infoStartTime} - {profile.infoFinishTime}
                         </span>{' '}
-                        <span style={{ fontSize: '1.1rem' }}>{profile.infoeDayOfWeek}</span>
+                        <span style={{ fontSize: '1rem' }}>{profile.infoeDayOfWeek}</span>
                       </div>
 
                       {/* Profile Name */}
-                      <div className="text-2xl">
-                        {!grey && <span>🎶 </span>}
+                      <div className="text-xl sm:text-2xl">
+                        {!grey && <span className="text-xl sm:text-2xl">🎶 </span>}
                         <span className="font-bold" style={{ color: grey ? '#9ca3af' : '#22c55e' }}>
                           {profile.infoName}
                         </span>
@@ -374,20 +376,20 @@ export default function HpMusicProfilePage() {
                       </div>
 
                       {/* Time and Day */}
-                      <div className="text-lg">
-                        {!grey && <span className="text-2xl">⏰ </span>}
+                      <div className="text-base sm:text-lg">
+                        {!grey && <span className="text-xl sm:text-2xl">⏰ </span>}
                         <span
-                          className="font-bold text-2xl"
+                          className="font-bold text-xl sm:text-2xl"
                           style={{ color: grey ? '#9ca3af' : '#8b4513' }}
                         >
                           {profile.infoStartTime} - {profile.infoFinishTime}
                         </span>{' '}
-                        <span style={{ fontSize: '1.1rem' }}>{profile.infoeDayOfWeek}</span>
+                        <span style={{ fontSize: '1rem' }}>{profile.infoeDayOfWeek}</span>
                       </div>
 
                       {/* Profile Name */}
-                      <div className="text-2xl">
-                        {!grey && <span>🎶 </span>}
+                      <div className="text-xl sm:text-2xl">
+                        {!grey && <span className="text-xl sm:text-2xl">🎶 </span>}
                         <span className="font-bold" style={{ color: grey ? '#9ca3af' : '#3b82f6' }}>
                           {profile.infoName}
                         </span>

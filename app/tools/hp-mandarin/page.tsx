@@ -1,4 +1,5 @@
 "use client";
+import ToolsNavigation from "../../components/ToolsNavigation";
 
 import { useState, useRef, useEffect } from "react";
 import ToolsMenu from "../../components/ToolsMenu";
@@ -105,6 +106,7 @@ export default function HpMandarinPage() {
   return (
     <div className="flex min-h-screen bg-[#faf8f3] paper-texture">
       <ToolsMenu currentToolId="hp-mandarin" />
+      <ToolsNavigation currentToolId="hp-mandarin" />
 
       <main className="flex flex-1 flex-col">
         {/* Header */}
