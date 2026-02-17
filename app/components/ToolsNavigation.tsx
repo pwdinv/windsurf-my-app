@@ -13,10 +13,10 @@ export default function ToolsNavigation({ currentToolId }: ToolsNavigationProps)
   const currentTool = tools.find((t) => t.id === currentToolId);
 
   return (
-    <div className="relative z-[100] lg:hidden">
+    <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[100] lg:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 rounded-lg border border-[#c4a484] bg-white px-3 py-1.5 text-sm text-[#3d2914] transition hover:border-[#8b6f47] hover:bg-[#faf8f3]"
+        className="flex items-center gap-2 rounded-lg border border-[#c4a484] bg-white px-3 py-1.5 text-sm text-[#3d2914] transition hover:border-[#8b6f47] hover:bg-[#faf8f3] shadow-md"
       >
         <span>Tools</span>
         <svg
@@ -40,7 +40,7 @@ export default function ToolsNavigation({ currentToolId }: ToolsNavigationProps)
             className="fixed inset-0 z-[150]"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute left-0 top-full z-[200] mt-2 w-72 rounded-xl border border-[#c4a484] bg-white py-2 shadow-lg">
+          <div className="absolute left-1/2 top-full transform -translate-x-1/2 z-[200] mt-2 w-72 max-w-[calc(100vw-2rem)] rounded-xl border border-[#c4a484] bg-white py-2 shadow-lg">
             <div className="border-b border-[#c4a484] px-4 py-2">
               <p className="text-xs font-medium text-[#8b6f47]">
                 Hack&apos;s Toolkit
