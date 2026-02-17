@@ -22,11 +22,14 @@ export default function ToolsMenu({ currentToolId }: ToolsMenuProps) {
               href={tool.href}
               className={`flex items-start gap-3 rounded-lg px-3 py-3 text-sm transition sketch-border-sm ${
                 tool.id === currentToolId
-                  ? "bg-[#fef9c3] text-[#3d2914] shadow-md"
-                  : "hover:bg-[#f5f0e8] text-[#5c4a3a]"
+                  ? "shadow-md"
+                  : "hover:bg-[#f5f0e8]"
               }`}
+              style={{
+                backgroundColor: tool.id === currentToolId ? (tool.color || '#fef9c3') : 'transparent',
+              }}
             >
-              <span className="text-lg">{tool.icon}</span>
+              <span className="text-2xl">{tool.icon}</span>
               <div className="flex-1">
                 <p className={`font-medium ${
                   tool.id === currentToolId ? "text-[#3d2914]" : "text-[#3d2914]"

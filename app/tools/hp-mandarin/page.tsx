@@ -108,11 +108,11 @@ export default function HpMandarinPage() {
 
       <main className="flex flex-1 flex-col">
         {/* Header */}
-        <header className="border-b-2 border-dashed border-[#c4a484] bg-white px-6 py-4 m-4 mb-0 sketch-border">
-          <h1 className="text-lg font-semibold text-[#3d2914] handwritten text-xl">
-            hp Mandarin AI Translator
+        <header className="border-b-2 border-dashed border-[#7a9eb8] bg-white px-6 py-4 m-4 mb-0 sketch-border">
+          <h1 className="text-lg font-semibold text-[#3d2914] handwritten text-xl flex items-center gap-2">
+            <span className="text-2xl">🌐</span> hp Mandarin AI Translator
           </h1>
-          <p className="text-sm text-[#8b6f47]">
+          <p className="text-sm text-[#7a9eb8]">
             Multilingual translation for Mandarin, English & Thai
           </p>
         </header>
@@ -144,7 +144,7 @@ export default function HpMandarinPage() {
                   className={`max-w-[85%] whitespace-pre-wrap rounded-2xl p-4 shadow-sm ${
                     message.role === "user"
                       ? "bg-[#7a9eb8] text-white sketch-border"
-                      : "bg-white text-[#3d2914] sticky-note"
+                      : "bg-white text-[#3d2914] sticky-note-blue sketch-border"
                   }`}
                 >
                   {message.content}
@@ -152,7 +152,7 @@ export default function HpMandarinPage() {
 
                 {/* Metadata */}
                 <div className="mt-1 flex items-center gap-2 px-1">
-                  <span className="text-xs text-[#8b6f47] handwritten">
+                  <span className="text-xs text-[#7a9eb8] handwritten">
                     {message.role === "user" ? "You" : "AI"} • {message.timestamp}
                   </span>
 
@@ -168,7 +168,7 @@ export default function HpMandarinPage() {
                             `${message.id}-copy-${index}`
                           )
                         }
-                        className="flex items-center gap-1 rounded px-2 py-0.5 text-[10px] text-[#5c4a3a] transition hover:bg-[#f5f0e8] sketch-border-sm bg-white"
+                        className="flex items-center gap-1 rounded px-2 py-0.5 text-[10px] text-[#7a9eb8] transition hover:bg-[#e0f2fe] sketch-border-sm bg-white"
                       >
                         {copiedId === `${message.id}-copy-${index}` ? (
                           <>
@@ -223,25 +223,25 @@ export default function HpMandarinPage() {
         </div>
 
         {/* Input Area */}
-        <div className="border-t-2 border-dashed border-[#c4a484] bg-white px-6 py-4 m-4 mt-0 sketch-border">
+        <div className="border-t-2 border-dashed border-[#7a9eb8] bg-white px-6 py-4 m-4 mt-0 sketch-border">
           <div className="mx-auto flex max-w-3xl gap-3">
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Enter text to translate..."
-              className="min-h-[60px] flex-1 resize-y rounded-xl border-2 border-[#c4a484] bg-white px-4 py-3 text-sm text-[#3d2914] placeholder-[#8b6f47] focus:border-[#7a9eb8] focus:outline-none sketch-input"
+              className="min-h-[60px] flex-1 resize-y rounded-xl border-2 border-[#7a9eb8] bg-white px-4 py-3 text-sm text-[#3d2914] placeholder-[#7a9eb8] focus:border-[#7a9eb8] focus:outline-none sketch-input"
               rows={1}
             />
             <button
               onClick={handleSend}
               disabled={!input.trim() || isLoading}
-              className="h-[60px] px-6 text-sm font-medium text-[#3d2914] disabled:cursor-not-allowed disabled:opacity-50 sketch-button"
+              className="h-[60px] px-6 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-50 sketch-button bg-[#7a9eb8] border-[#3d2914]"
             >
               {isLoading ? "Sending..." : "Send"}
             </button>
           </div>
-          <p className="mx-auto mt-2 max-w-3xl text-center text-xs text-[#8b6f47] handwritten">
+          <p className="mx-auto mt-2 max-w-3xl text-center text-xs text-[#7a9eb8] handwritten">
             Press Enter to send, Shift+Enter for new line
           </p>
         </div>

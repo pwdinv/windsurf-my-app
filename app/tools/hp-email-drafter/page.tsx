@@ -97,10 +97,10 @@ export default function HpEmailDrafterPage() {
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <header className="mb-8">
-            <h1 className="text-xl font-semibold text-[#3d2914] handwritten text-2xl">
-              hp AI Email Drafter
+            <h1 className="text-2xl font-semibold text-[#3d2914] handwritten flex items-center gap-2">
+              <span className="text-3xl">✉️</span> hp AI Email Drafter
             </h1>
-            <p className="text-sm text-[#8b6f47]">
+            <p className="text-sm text-[#9caf88]">
               Professional client email drafting using OpenRouter
             </p>
           </header>
@@ -216,12 +216,12 @@ export default function HpEmailDrafterPage() {
             </div>
 
             {/* Actions */}
-            <div className="mt-6 flex items-center justify-between border-t-2 border-dashed border-[#c4a484] pt-6">
-              <span className="text-sm text-[#8b6f47] handwritten">+_+</span>
+            <div className="mt-6 flex items-center justify-between border-t-2 border-dashed border-[#9caf88] pt-6">
+              <span className="text-sm text-[#9caf88] handwritten">+_+</span>
               <button
                 onClick={handleDraft}
                 disabled={isLoading}
-                className="px-6 py-3 font-medium text-[#3d2914] disabled:cursor-not-allowed disabled:opacity-50 sketch-button"
+                className="px-6 py-3 font-medium text-[#3d2914] disabled:cursor-not-allowed disabled:opacity-50 sketch-button bg-[#9caf88]"
               >
                 {isLoading ? "Drafting..." : "Draft Email"}
               </button>
@@ -229,14 +229,14 @@ export default function HpEmailDrafterPage() {
 
             {/* Output */}
             {output && (
-              <div className="mt-6 border-t-2 border-dashed border-[#c4a484] pt-6">
+              <div className="mt-6 border-t-2 border-dashed border-[#9caf88] pt-6">
                 <label className="mb-2 block text-sm font-medium text-[#3d2914]">
                   Drafted Email
                 </label>
                 <textarea
                   value={output}
                   readOnly
-                  className="min-h-[220px] w-full rounded-lg border-2 border-[#9caf88] bg-[#f5f0e8] px-4 py-3 text-sm text-[#3d2914]"
+                  className="min-h-[220px] w-full rounded-lg border-2 border-[#9caf88] bg-[#dcfce7] px-4 py-3 text-sm text-[#3d2914]"
                 />
                 <div className="mt-4 flex justify-center">
                   <button
